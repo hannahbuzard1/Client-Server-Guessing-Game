@@ -95,7 +95,7 @@ int main( int argc, char **argv) {
 		send(sd, str2, 12, 0);
 		//process the server's reply to the guess
 		char buf[1000];  // buffer for data from the server
-		recieving = recv(sd2, buf, sizeof(buf), 0);
+		recieving = recv(sd, buf, sizeof(buf), 0);
 		//convert reply to integer
 		int reply = atoi(buf);
 		if(reply == 1) {
