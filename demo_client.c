@@ -85,7 +85,7 @@ int main( int argc, char **argv) {
 
 	bool correct = false;
 	int userguess = 0;
-	int n =0;
+	int recieving =0;
 	//keep asking for a guess until told to exit or the guess is correct
 	while (correct != true) {
 		//ask user for guess and send guessed number to server
@@ -95,15 +95,15 @@ int main( int argc, char **argv) {
 		send(sd, str2, 12, 0);
 		//process the server's reply to the guess
 		char buf[1000];  // buffer for data from the server
-		n = recv(sd2, buf, sizeof(buf), 0);
+		recieving = recv(sd2, buf, sizeof(buf), 0);
 		//convert reply to integer
 		int reply = atoi(buf);
 		if(reply == 1) {
-			printf("Guess is too high, try again\n", %s);
+			printf("Guess is too high, try again\n");
 		} else if (reply == -1) {
-			printf("Guess is too low, try again\n", %s);
+			printf("Guess is too low, try again\n");
 		} else if (reply == 0) {
-			printf("You have guessed correctly and won the game!!\n", %s);
+			printf("You have guessed correctly and won the game!!\n");
 			correct = true;
 		}
 	}
