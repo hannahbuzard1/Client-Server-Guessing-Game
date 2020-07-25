@@ -94,6 +94,7 @@ int main( int argc, char **argv) {
 		scanf("%d", &userguess);
 		sprintf(str2, "%d", userguess); //convert guess to a string to be sent to server
 		send(sd, str2, 12, 0);
+		printf("I am here\n");
 		//process the server's reply to the guess
 		char buf[1000];  // buffer for data from the server
 		recieving = recv(sd, buf, sizeof(buf), 0);
