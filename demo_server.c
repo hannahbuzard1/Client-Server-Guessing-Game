@@ -101,6 +101,9 @@ int main(int argc, char **argv) {
 
 		int pid = fork();
 		if(pid == 0) {
+		    char buf1[1000]; /* buffer for string the server sends */
+		    sprintf(buf1, "Hello Client, I am server!\n");
+		    send(sd2,buf1,strlen(buf1),0);
 			//get guess from client
 			int clientreply = 0;
 			char reply[1000];
