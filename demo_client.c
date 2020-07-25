@@ -101,10 +101,10 @@ int main( int argc, char **argv) {
 		if(reply == 1) {
 		    printf("in statement 1\n");
 			printf("Guess is too high, try again\n");
-		} else if (reply == -1) {
+		} if (reply == -1) {
 		    printf("in statement 2\n");
 			printf("Guess is too low, try again\n");
-		} else if (reply == 0) {
+		} if (reply == 0) {
 		    printf("in statement 3\n");
 			printf("You have guessed correctly and won the game!!\n");
 			correct = true;
