@@ -87,6 +87,7 @@ int main( int argc, char **argv) {
 	int recieving =0;
 	//keep asking for a guess until told to exit or the guess is correct
 	while (correct != true) {
+	    printf("In loop\n");
 		//ask user for guess and send guessed number to server
 		char str2[12];
 		scanf("%d", &userguess);
@@ -98,10 +99,13 @@ int main( int argc, char **argv) {
 		//convert reply to integer
 		int reply = atoi(buf);
 		if(reply == 1) {
+		    printf("in statement 1\n");
 			printf("Guess is too high, try again\n");
 		} else if (reply == -1) {
+		    printf("in statement 2\n");
 			printf("Guess is too low, try again\n");
 		} else if (reply == 0) {
+		    printf("in statement 3\n");
 			printf("You have guessed correctly and won the game!!\n");
 			correct = true;
 		}
