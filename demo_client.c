@@ -87,10 +87,8 @@ int main( int argc, char **argv) {
 	int recieving = 0;
 	//keep asking for a guess until told to exit or the guess is correct
 	while (correct != true) {
-	    printf("In loop\n");
 		//ask user for guess and send guessed number to server
 		char str2[12];
-		printf("Please enter next guess\n");
 		scanf("%d", &userguess);
 		sprintf(str2, "%d", userguess); //convert guess to a string to be sent to server
 		send(sd, str2, 12, 0);
