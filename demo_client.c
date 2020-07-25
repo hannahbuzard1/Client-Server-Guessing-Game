@@ -90,6 +90,7 @@ int main( int argc, char **argv) {
 	    printf("In loop\n");
 		//ask user for guess and send guessed number to server
 		char str2[12];
+		printf("Please enter next guess\n");
 		scanf("%d", &userguess);
 		sprintf(str2, "%d", userguess); //convert guess to a string to be sent to server
 		send(sd, str2, 12, 0);
