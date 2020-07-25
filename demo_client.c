@@ -80,9 +80,11 @@ int main( int argc, char **argv) {
 		fprintf(stderr,"connect failed\n");
 		exit(EXIT_FAILURE);
 	}
-
+    int n2;
 	fprintf(stdout, "Successfully connected to server.\n");
-
+    char buf1[1000]; /* buffer for data from the server */
+    n2 = recv(sd, buf1, sizeof(buf), 0);
+    write(1,buf1,n2);
 	bool correct = false;
 	int userguess = 0;
 	int recieving =0;
