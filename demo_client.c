@@ -81,10 +81,10 @@ int main( int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
     int n2;
-    printf("Please enter your first guess:");
+    printf("Please enter your first guess:\n");
 	bool correct = false;
 	int userguess = 0;
-	int recieving =0;
+	int recieving = 0;
 	//keep asking for a guess until told to exit or the guess is correct
 	while (correct != true) {
 	    printf("In loop\n");
@@ -99,15 +99,14 @@ int main( int argc, char **argv) {
 		//convert reply to integer
 		int reply = atoi(buf);
 		if(reply == 1) {
-		    printf("in statement 1\n");
 			printf("Guess is too high, try again\n");
-		} if (reply == -1) {
-		    printf("in statement 2\n");
+		} else if (reply == -1) {
 			printf("Guess is too low, try again\n");
-		} if (reply == 0) {
-		    printf("in statement 3\n");
+		} else if (reply == 0) {
 			printf("You have guessed correctly and won the game!!\n");
 			correct = true;
+		} else {
+		    printf("None of the above");
 		}
 	}
 	close(sd);
