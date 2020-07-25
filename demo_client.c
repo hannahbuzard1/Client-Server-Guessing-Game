@@ -81,10 +81,7 @@ int main( int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
     int n2;
-	fprintf(stdout, "Successfully connected to server.\n");
-    char buf1[1000]; /* buffer for data from the server */
-    n2 = recv(sd, buf1, sizeof(buf1), 0);
-    write(1,buf1,n2);
+    printf("Please enter your first guess:");
 	bool correct = false;
 	int userguess = 0;
 	int recieving =0;
