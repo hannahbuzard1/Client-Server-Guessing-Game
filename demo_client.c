@@ -99,7 +99,7 @@ int main( int argc, char **argv) {
 		recieving = recv(sd, buf, sizeof(buf), 0);
 		//convert reply to integer
 		int reply = atoi(buf);
-		printf("Server's reply is: %d", reply");
+		printf("Server's reply is: %d", reply);
 		if(reply == 1) {
 			printf("Guess is too high, try again\n");
 		} else if (reply == -1) {
