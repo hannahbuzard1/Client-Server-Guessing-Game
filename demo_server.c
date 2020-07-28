@@ -121,10 +121,10 @@ int main(int argc, char **argv) {
     				sprintf(buf, "%s", "0");
     			}
     			send(sd2,buf,strlen(buf),0);
-    			//close connection
-    			close(sd2);
-    			exit(EXIT_SUCCESS);
 		    }
+		    //close connection
+			close(sd2);
+			exit(EXIT_SUCCESS);
 
 		} else {
 			/* parent process */
