@@ -112,7 +112,6 @@ int main(int argc, char **argv) {
     			printf("Client's guess is: %d", clientnumber1);
     			uint32_t clientnumber = clientnumber1;
     			char buf[1000]; // buffer for string the server sends
-    			bzero(buf,1000);
     			if(clientnumber < secret_number) {
     			    printf("Here 1\n");
     				sprintf(buf, "%s", "-1");
