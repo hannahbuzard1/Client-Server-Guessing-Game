@@ -113,10 +113,13 @@ int main(int argc, char **argv) {
 			char buf[1000]; // buffer for string the server sends
 			bzero(buf,1000);
 			if(clientnumber < secret_number) {
+			    printf("Here 1\n");
 				sprintf(buf, "%s", "-1");
 			} else if (clientnumber > secret_number) {
+			    printf("Here 2\n");
 				sprintf(buf, "%s", "1");
 			} else if (clientnumber == secret_number) {
+			    printf("Here 3\n");
 				sprintf(buf, "%s", "0");
 			}
 			send(sd2,buf,strlen(buf),0);
