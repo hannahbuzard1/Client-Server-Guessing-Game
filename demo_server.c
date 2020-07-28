@@ -108,6 +108,7 @@ int main(int argc, char **argv) {
 			clientreply = recv(sd2, reply, 1000,0);
 			//compare client's guess to actual number
 			int clientnumber1 = atoi(reply);
+			printf("Client's guess is: %d", clientnumber1");
 			uint32_t clientnumber = clientnumber1;
 			char buf[1000]; // buffer for string the server sends
 			bzero(buf,1000);
