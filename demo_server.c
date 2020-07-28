@@ -108,7 +108,6 @@ int main(int argc, char **argv) {
     			recv(sd2, reply, 1000,0);
     			//compare client's guess to actual number
     			int clientnumber1 = atoi(reply);
-    			printf("Client's guess is: %d", clientnumber1);
     			char buf[1000]; // buffer for string the server sends
     			if(clientnumber1 < secret_number) {
     				sprintf(buf, "%s", "-1");
