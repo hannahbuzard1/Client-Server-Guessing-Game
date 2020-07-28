@@ -104,11 +104,13 @@ int main(int argc, char **argv) {
 			//get guess from client
 			int clientreply = 0;
 			char reply[1000];
-			clientreply = recv(sd, reply, 1000,0);
+			bzero(reply,1000);
+			clientreply = recv(sd2, reply, 1000,0);
 			//compare client's guess to actual number
 			int clientnumber1 = atoi(reply);
 			uint32_t clientnumber = clientnumber1;
 			char buf[1000]; // buffer for string the server sends
+			bzero(buf,1000);
 			if(clientnumber < secret_number) {
 				sprintf(buf, "%s", "-1");
 			} else if (clientnumber > secret_number) {
