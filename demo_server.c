@@ -101,31 +101,33 @@ int main(int argc, char **argv) {
 
 		int pid = fork();
 		if(pid == 0) {
-			//get guess from client
-			int clientreply = 0;
-			char reply[1000];
-			bzero(reply,1000);
-			clientreply = recv(sd2, reply, 1000,0);
-			//compare client's guess to actual number
-			int clientnumber1 = atoi(reply);
-			printf("Client's guess is: %d", clientnumber1);
-			uint32_t clientnumber = clientnumber1;
-			char buf[1000]; // buffer for string the server sends
-			bzero(buf,1000);
-			if(clientnumber < secret_number) {
-			    printf("Here 1\n");
-				sprintf(buf, "%s", "-1");
-			} else if (clientnumber > secret_number) {
-			    printf("Here 2\n");
-				sprintf(buf, "%s", "1");
-			} else if (clientnumber == secret_number) {
-			    printf("Here 3\n");
-				sprintf(buf, "%s", "0");
-			}
-			send(sd2,buf,strlen(buf),0);
-			//close connection
-			close(sd2);
-			exit(EXIT_SUCCESS);
+		    while(1) {
+    			//get guess from client
+    			int clientreply = 0;
+    			char reply[1000];
+    			bzero(reply,1000);
+    			clientreply = recv(sd2, reply, 1000,0);
+    			//compare client's guess to actual number
+    			int clientnumber1 = atoi(reply);
+    			printf("Client's guess is: %d", clientnumber1);
+    			uint32_t clientnumber = clientnumber1;
+    			char buf[1000]; // buffer for string the server sends
+    			bzero(buf,1000);
+    			if(clientnumber < secret_number) {
+    			    printf("Here 1\n");
+    				sprintf(buf, "%s", "-1");
+    			} else if (clientnumber > secret_number) {
+    			    printf("Here 2\n");
+    				sprintf(buf, "%s", "1");
+    			} else if (clientnumber == secret_number) {
+    			    printf("Here 3\n");
+    				sprintf(buf, "%s", "0");
+    			}
+    			send(sd2,buf,strlen(buf),0);
+    			//close connection
+    			close(sd2);
+    			exit(EXIT_SUCCESS);
+		    }
 
 		} else {
 			/* parent process */
