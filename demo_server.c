@@ -103,20 +103,19 @@ int main(int argc, char **argv) {
 		if(pid == 0) {
 		    while(1) {
     			//get guess from client
-    			int clientreply = 0;
-    			char reply[1000];
-    			recv(sd2, reply, 1000,0);
+					int receivedInt = 0;
+					recv(sd2, &receivedInt, sizeof(receivedInt));
     			//compare client's guess to actual number
-    			int clientnumber1 = atoi(reply);
+    			int clientnumber1 = ntohl(receivedInt); //convert to host order
     			char buf[1000]; // buffer for string the server sends
-    			if(clientnumber1 < secret_number) {
+    			if(clientnumber1 < secret_number) { //compare guess to actual number
     				sprintf(buf, "%s", "-1");
     			} if (clientnumber1 > secret_number) {
     				sprintf(buf, "%s", "1");
     			} if (clientnumber1 == secret_number) {
     				sprintf(buf, "%s", "0");
     			}
-    			send(sd2,buf,strlen(buf),0);
+    			send(sd2,buf,strlen(buf),0); //send reply to client
 		    }
 		    //close connection
 			close(sd2);
