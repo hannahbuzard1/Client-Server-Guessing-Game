@@ -103,8 +103,8 @@ int main(int argc, char **argv) {
 		if(pid == 0) {
 		    while(1) {
     			//get guess from client
-					int receivedInt = 0;
-					recv(sd2, &receivedInt, sizeof(receivedInt));
+				int receivedInt = 0;
+				recv(sd2, &receivedInt, sizeof(receivedInt),0);
     			//compare client's guess to actual number
     			int clientnumber1 = ntohl(receivedInt); //convert to host order
     			char buf[1000]; // buffer for string the server sends
