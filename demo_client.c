@@ -80,26 +80,26 @@ int main( int argc, char **argv) {
 		fprintf(stderr,"connect failed\n");
 		exit(EXIT_FAILURE);
 	}
-    int n2;
-    printf("Please enter your first guess:\n");
+
+  int n2;
+  printf("Please enter your first guess:\n"); //prompt for first guess
 	bool correct = false;
 	int userguess = 0;
 	int recieving = 0;
-	//keep asking for a guess until told to exit or the guess is correct
+	//keep asking for a guess until guess is correct
 	while (correct != true) {
 		//ask user for guess and send guessed number to server
-		char str2[12];
 		scanf("%d", &userguess);
-		bzero(str2,12);
-		sprintf(str2, "%d", userguess); //convert guess to a string to be sent to server
-		send(sd, str2, 12, 0);
+		int sendingNum = userguess;
+		int convNum = htonl(sendingNum); //send in network byte order
+		send(sd, &convNum, sizeof(convNum),0);
 		//process the server's reply to the guess
 		char buf[1000];  // buffer for data from the server
 		bzero(buf,1000);
-		recieving = recv(sd, buf, sizeof(buf), 0);
+		recv(sd, buf, sizeof(buf), 0); //receive server response to guess
 		//convert reply to integer
 		int reply = atoi(buf);
-		if(reply == 1) {
+		if(reply == 1) { //analyze server's reply
 			printf("Guess is too high, try again\n");
 		} else if (reply == -1) {
 			printf("Guess is too low, try again\n");
@@ -110,6 +110,7 @@ int main( int argc, char **argv) {
 		    printf("None of the above");
 		}
 	}
+	//close connection
 	close(sd);
 	exit(EXIT_SUCCESS);
 }
