@@ -1,4 +1,7 @@
-/* demo_server.c - code for example server program that uses TCP */
+/* Hannah Buzard
+CSCI 367
+Lab 4
+*/
 
 #include <sys/types.h>
 #include <sys/socket.h>
