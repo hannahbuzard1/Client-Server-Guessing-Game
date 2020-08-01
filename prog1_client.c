@@ -1,4 +1,7 @@
-/* demo_client.c - code for example client program that uses TCP */
+/* Hannah Buzard
+CSCI 367
+Lab 4
+*/
 
 #include <stdio.h>
 #include <string.h>
